@@ -104,17 +104,6 @@ img {
     background: var(--color-primary-hover);
 }
 
-.btn-secondary {
-    background: #2C2B2B;
-    color: #fff;
-    border-radius: 25px;
-    text-align: center;
-}
-
-.btn-secondary:hover {
-    background: #151515;
-}
-
 /*=================================
     ESTILOS: Alertas
 ==================================*/
@@ -139,9 +128,9 @@ img {
 }
 
 /*=================================
-    ESTILOS: Carrito
+    ESTILOS: Newsletter Page
 ==================================*/
-.hm-page-block.carrito {
+.hm-page-block.newsletter-page {
     padding: 60px 0;
 }
 
@@ -158,6 +147,13 @@ img {
     padding-bottom: 16px;
 }
 
+.header-title p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 .header-title h1::after {
     content: '';
     width: 76px;
@@ -170,109 +166,108 @@ img {
     border-radius: 3px;
 }
 
-.carrito-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.carrito-productos {
-    flex: 2;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #EEF5F9;
-}
-
-.carrito-resumen {
-    flex: 1;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #EEF5F9;
-    height: fit-content;
-}
-
-.carrito-resumen h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #EEF5F9;
-    color: var(--color-negro);
-}
-
-.resumen-item,
-.resumen-total {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: var(--color-negro);
-}
-
-.resumen-total {
-    font-weight: 700;
-    font-size: 18px;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #EEF5F9;
-}
-
-.btn-finalizar-compra,
-.btn-vaciar-carrito {
+.newsletter-contenido {
     width: 100%;
-    margin-top: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid #EEF5F9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.carrito-vacio-mensaje {
-    text-align: center;
-    color: #6c757d;
-    padding: 40px 0;
+.newsletter-form .form-group {
+    margin-bottom: 18px;
+    position: relative;
 }
 
-.producto-en-carrito {
+.newsletter-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"],
+.newsletter-form input[type="tel"],
+.newsletter-form input[type="date"],
+.newsletter-form select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.newsletter-form input:focus,
+.newsletter-form select:focus {
+    outline: none;
+    border-color: var(--color-principal);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.checkbox-group label {
+    font-weight: 400;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #EEF5F9;
+    gap: 5px;
 }
 
-.producto-en-carrito:last-child {
-    border-bottom: none;
+.feedback {
+    font-size: 12px;
+    padding-top: 4px;
+    min-height: 18px;
 }
 
-.producto-en-carrito .img-carrito {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    margin-right: 15px;
+.form-group input.is-invalid,
+.form-group select.is-invalid {
+    border-color: #dc3545;
 }
 
-.info-producto-carrito {
-    flex-grow: 1;
-}
-
-.info-producto-carrito p {
-    margin: 0 0 5px 0;
-    color: var(--color-negro);
-}
-
-.info-producto-carrito .titulo-producto-carrito {
-    font-weight: 600;
-}
-
-.borrar-producto {
-    font-size: 20px;
-    font-weight: bold;
+.form-group .feedback.is-invalid {
     color: #dc3545;
-    padding: 5px;
 }
 
-.borrar-producto:hover {
-    color: #a71d2a;
+.form-group input.is-valid,
+.form-group select.is-valid {
+    border-color: #28a745;
 }
 
+.form-group .feedback.is-valid {
+    color: #28a745;
+}
+
+/* Dark Mode for Newsletter Page */
+body.dark-mode .newsletter-page, body.dark-mode .titulo h1{
+background-color: #161616 !important;
+}
+
+body.dark-mode .newsletter-contenido {
+    background-color: #161616;
+    border-color: #333;
+}
+
+body.dark-mode .header-title p {
+    color: #aaa;
+}
+body.dark-mode .newsletter-form label {
+    color: #f1f1f1;
+}
+body.dark-mode .newsletter-form input,
+body.dark-mode .newsletter-form select {
+    background-color: #181818 !important;
+    border-color: #555 !important;
+    color: #f1f1f1 !important;
+}
 
 /*=================================
     ESTILOS: Headerhm
@@ -387,6 +382,13 @@ footer .foo-row .foo-col:last-child {
 
 footer .foo-row .foo-col:first-child {
     margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .foo-logo {
+    width: 150px;
 }
 
 footer .foo-row .foo-col h2 {
@@ -555,16 +557,29 @@ footer .foo-col .foo-social ul li a:hover {
     }
 
     footer .foo-row {
-        flex-direction: column;
+        align-items: center;
     }
 
     footer .foo-row .foo-col {
-        width: 100%;
+        width: auto;
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
 
     footer .foo-row .foo-col ul.foo-nav {
+        display: none;
+    }
+
+    footer .foo-row .foo-col:first-child {
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+
+    footer .foo-social {
+        margin-top: 0;
+    }
+
+    footer .foo-social h4 {
         display: none;
     }
 
@@ -755,20 +770,17 @@ body.page-fade-out {
 .dark-mode .hm-menu ul li a,
 .dark-mode .hm-icon-cart a,
 .dark-mode .hm-banner,
+.dark-mode .hm-banner .img-banner,
 .dark-mode .hm-page-block,
-.dark-mode .header-title,
 .dark-mode .header-title h1,
-.dark-mode .carrito-contenido,
-.dark-mode .carrito-productos,
-.dark-mode .carrito-resumen,
-.dark-mode .carrito-resumen h2,
-.dark-mode .resumen-item,
-.dark-mode .resumen-total,
-.dark-mode .carrito-vacio-mensaje,
-.dark-mode .producto-en-carrito,
-.dark-mode .info-producto-carrito p,
-.dark-mode .borrar-producto,
-.dark-mode .borrar-producto:hover,
+.dark-mode .hm-grid-category,
+.dark-mode .hm-grid-category .grid-item,
+.dark-mode .hm-grid-category .grid-item .c-info,
+.dark-mode .grid-product .product-item,
+.dark-mode .login-contenido,
+.dark-mode .login-form label,
+.dark-mode .login-form .register-link,
+.dark-mode .grid-product .product-item .p-info,
 .dark-mode .tabs-content,
 .dark-mode .hm-tabs,
 .dark-mode .hm-tabs .hm-tab-link,
@@ -829,6 +841,7 @@ body.page-fade-out {
     color: #fff !important;
 }
 
+.dark-mode .hm-banner .img-banner img,
 .dark-mode img {
     filter: brightness(0.7) contrast(1.1);
 }
@@ -846,7 +859,7 @@ body.page-fade-out {
 .dark-mode .hm-btn,
 .dark-mode .btn-primary,
 .dark-mode .hm-btn.btn-secondary {
-    background: #232323 !important;
+    background: #181818 !important;
     color: #f1f1f1 !important;
     border-color: #333 !important;
 }
@@ -890,7 +903,7 @@ body.page-fade-out {
 }
 
 .dark-mode footer form .f-input input {
-    background: #151515 !important;
+    background: #161616 !important;
     color: #fff !important;
 }
 
@@ -899,12 +912,24 @@ body.page-fade-out {
     opacity: 1;
 }
 
+.dark-mode .foo-logo img {
+    filter: invert(1) brightness(2);
+}
+
 .dark-mode .hm-logo img {
     filter: invert(1) brightness(2);
 }
 
 .dark-mode .foo-copy,
 .dark-mode .foo-copy p {
+    background: #161616 !important;
+    color: #bbb !important;
+}
+
+.dark-mode .productos,
+.dark-mode .titulos h1,
+.dark-mode .tabs,
+.dark-mode .contenidos {
     background: #161616 !important;
     color: #bbb !important;
 }
@@ -951,195 +976,7 @@ body.dark-mode .header-menu-movil ul li a:hover {
 }
 
 .dark-mode .header-menu-movil .cerrar-menu:hover {
-        background: var(--color-principal) !important;
-    }
-
-.dark-mode .carrito-resumen,
-.dark-mode .carrito-productos {
-    border-color: #333 !important;
-}
-
-.dark-mode .carrito-resumen h2,
-.dark-mode .resumen-total {
-    border-color: #333 !important;
-}
-
-.dark-mode .producto-en-carrito {
-    border-color: #333 !important;
-}
-
-.dark-mode .info-producto-carrito p {
-    color: #f1f1f1 !important;
-}
-
-.dark-mode .borrar-producto {
-    color: #ff4d4d !important;
-}
-
-.dark-mode .borrar-producto:hover {
-    color: #ff7a7a !important;
-}
-
-.dark-mode .carrito,
-.dark-mode .titulo h1,
-.dark-mode .carrito-contenido {
-    background-color: #161616 !important;
-    background: #161616 !important;
-    color: #bbb !important;
-}
-
-/*=================================
-    ESTILOS: MODAL NEWSLETTER
-==================================*/
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 30px;
-    border: 1px solid #ddd;
-    width: 90%;
-    max-width: 550px;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    animation: slideIn 0.4s ease-in-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: var(--color-negro);
-}
-
-.modal-content p {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.close-button {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: #333;
-}
-
-#modalNewsletterForm .form-group {
-    margin-bottom: 18px;
-    position: relative;
-}
-
-#modalNewsletterForm label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 500;
-    color: #333;
-    font-size: 14px;
-}
-
-#modalNewsletterForm input[type="text"],
-#modalNewsletterForm input[type="email"],
-#modalNewsletterForm input[type="tel"],
-#modalNewsletterForm input[type="date"],
-#modalNewsletterForm select {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 15px;
-    transition: border-color 0.2s;
-}
-
-#modalNewsletterForm input:focus,
-#modalNewsletterForm select:focus {
-    outline: none;
-    border-color: var(--color-principal);
-}
-
-.checkbox-group {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.checkbox-group label {
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Validation Feedback */
-.feedback {
-    font-size: 12px;
-    padding-top: 4px;
-    min-height: 18px;
-}
-
-.form-group input.is-invalid,
-.form-group select.is-invalid {
-    border-color: #dc3545;
-}
-
-.form-group .feedback.is-invalid {
-    color: #dc3545;
-}
-
-.form-group input.is-valid,
-.form-group select.is-valid {
-    border-color: #28a745;
-}
-
-.form-group .feedback.is-valid {
-    color: #28a745;
-}
-
-/* Dark Mode for Modal */
-body.dark-mode .modal-content {
-    background-color: #161616;
-    border-color: #444;
-}
-body.dark-mode .modal-content h2,
-body.dark-mode .modal-content p,
-body.dark-mode #modalNewsletterForm label {
-    color: #f1f1f1;
-}
-body.dark-mode #modalNewsletterForm input,
-body.dark-mode #modalNewsletterForm select {
-    background-color: #232323;
-    border-color: #555 !important;
-    color: #f1f1f1;
+    background: var(--color-principal) !important;
 }
 
 body.dark-mode #preloader {

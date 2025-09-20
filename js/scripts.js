@@ -59,14 +59,26 @@ if (document.querySelector('.hm-tabs')) {
 
 const menu = document.querySelector('.icon-menu');
 const menuClose = document.querySelector('.cerrar-menu');
+const mobileMenu = document.querySelector('.header-menu-movil');
+const overlay = document.querySelector('.menu-overlay');
 
-menu.addEventListener('click', () => {
-    document.querySelector('.header-menu-movil').classList.add('active');
-})
+if (menu && mobileMenu && menuClose && overlay) {
+    const openMenu = () => {
+        mobileMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    };
 
-menuClose.addEventListener('click', () => {
-    document.querySelector('.header-menu-movil').classList.remove('active');
-})
+    const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    };
+
+    menu.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+}
 
 /*=========================================
     DARK MODE
@@ -375,38 +387,17 @@ if (formLogin) {
     FORMULARIO NEWSLETTER (FOOTER)
     Y MODAL
 ==========================================*/
-const modal = document.getElementById('newsletterModal');
-const openModalBtn = document.getElementById('openNewsletterModal');
-const closeModalBtn = document.querySelector('.close-button');
-const newsletterForm = document.getElementById('modalNewsletterForm');
+const newsletterPageForm = document.getElementById('newsletterPageForm');
 
-if (modal && openModalBtn && closeModalBtn && newsletterForm) {
-    openModalBtn.addEventListener('click', () => {
-        modal.style.display = 'block';
-    });
-
-    const closeModal = () => {
-        modal.style.display = 'none';
-        newsletterForm.reset();
-        clearAllFeedback();
-    };
-
-    closeModalBtn.addEventListener('click', closeModal);
-
-    window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            closeModal();
-        }
-    });
-
+if (newsletterPageForm) {
     const fields = {
-        name: document.getElementById('modalName'),
-        email: document.getElementById('modalEmail'),
-        phone: document.getElementById('modalPhone'),
-        birthdate: document.getElementById('modalBirthdate'),
-        interest: document.getElementById('modalInterest'),
+        name: document.getElementById('pageName'),
+        email: document.getElementById('pageEmail'),
+        phone: document.getElementById('pagePhone'),
+        birthdate: document.getElementById('pageBirthdate'),
+        interest: document.getElementById('pageInterest'),
         notifications: document.querySelectorAll('input[name="notifications"]'),
-        terms: document.getElementById('terms')
+        terms: document.getElementById('pageTerms')
     };
 
     const setFeedback = (element, message, isValid) => {
@@ -426,10 +417,10 @@ if (modal && openModalBtn && closeModalBtn && newsletterForm) {
     };
     
     const clearAllFeedback = () => {
-        newsletterForm.querySelectorAll('input, select').forEach(el => {
+        newsletterPageForm.querySelectorAll('input, select').forEach(el => {
             el.classList.remove('is-valid', 'is-invalid');
         });
-        newsletterForm.querySelectorAll('.feedback').forEach(el => {
+        newsletterPageForm.querySelectorAll('.feedback').forEach(el => {
             el.textContent = '';
             el.classList.remove('is-valid', 'is-invalid');
         });
@@ -445,25 +436,25 @@ if (modal && openModalBtn && closeModalBtn && newsletterForm) {
             message = 'Este campo es obligatorio.';
         } else if (value !== '' || field.type === 'checkbox') {
             switch (field.id) {
-                case 'modalName':
+                case 'pageName':
                     if (value.length < 3) {
                         isValid = false;
                         message = 'El nombre debe tener al menos 3 caracteres.';
                     }
                     break;
-                case 'modalEmail':
+                case 'pageEmail':
                     if (!validarEmail(value)) {
                         isValid = false;
                         message = 'Por favor, ingresa un correo electrónico válido.';
                     }
                     break;
-                case 'modalPhone':
+                case 'pagePhone':
                     if (value !== '' && !/^\d{7,15}$/.test(value)) {
                         isValid = false;
                         message = 'Ingresa un número de teléfono válido (solo números).';
                     }
                     break;
-                case 'modalBirthdate':
+                case 'pageBirthdate':
                     const birthDate = new Date(value);
                     const today = new Date();
                     birthDate.setHours(0,0,0,0);
@@ -501,7 +492,7 @@ if (modal && openModalBtn && closeModalBtn && newsletterForm) {
         });
     });
 
-    newsletterForm.addEventListener('submit', function (e) {
+    newsletterPageForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const isNameValid = validateField(fields.name);
@@ -540,8 +531,11 @@ if (modal && openModalBtn && closeModalBtn && newsletterForm) {
             })
             .then(data => {
                 console.log('Suscripción exitosa:', data);
-                mostrarAlerta('¡Gracias por suscribirte! Revisa tu correo.', 'exito', this.parentElement);
-                setTimeout(closeModal, 2000);
+                mostrarAlerta('¡Gracias por suscribirte! Revisa tu correo.', 'exito', this);
+                setTimeout(() => {
+                    newsletterPageForm.reset();
+                    clearAllFeedback();
+                }, 2000);
             })
             .catch(error => {
                 console.error('Error:', error);

@@ -47,7 +47,7 @@
                         <ul>
                             <li><a href="index.html">Inicio</a></li>
                             <li><a href="#categorias">Categorías</a></li>
-                            <li><a href="http://">Nosotros</a></li>
+                            <li><a href="pages/novedades.html">Novedades</a></li>
                             <li><a href="http://">Contacto</a></li>
                         </ul>
 
@@ -94,6 +94,7 @@
                 <li><a href="#">Contacto</a></li>
             </ul>
         </div>
+        <div class="menu-overlay"></div>
     </header>
 
     <!-- =================================
@@ -134,7 +135,7 @@
         </div>
 
         <!-- =================================
-           HOME CATEGROIAS
+           HOME CATEGORIAS
         ================================== -->
         <div class="hm-page-block">
             <div class="container">
@@ -574,67 +575,6 @@
 
         </div>
 
-        <!-- =================================
-           MODAL NEWSLETTER
-        ================================== -->
-        <div id="newsletterModal" class="modal">
-            <div class="modal-content">
-                <button class="close-button">&times;</button>
-                <h2>Suscribite a nuestro newsletter</h2>
-                <p>Recibí ofertas exclusivas, noticias y tendencias en tu correo.</p>
-                <form id="modalNewsletterForm" novalidate>
-                    <div class="form-group">
-                        <label for="modalName">Nombre Completo</label>
-                        <input type="text" id="modalName" name="name" placeholder="Ej: Juan Pérez" required>
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="modalEmail">Correo Electrónico</label>
-                        <input type="email" id="modalEmail" name="email" placeholder="tu@correo.com" required>
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="modalPhone">Teléfono (Opcional)</label>
-                        <input type="tel" id="modalPhone" name="phone" placeholder="Ej: 1123456789">
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="modalBirthdate">Fecha de Nacimiento</label>
-                        <input type="date" id="modalBirthdate" name="birthdate" required>
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="modalInterest">Principal Interés</label>
-                        <select id="modalInterest" name="interest" required>
-                            <option value="">Selecciona una categoría...</option>
-                            <option value="calzado">Calzado</option>
-                            <option value="moda">Moda</option>
-                            <option value="tecnologia">Tecnología</option>
-                            <option value="accesorios">Accesorios</option>
-                        </select>
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>¿Qué notificaciones querés recibir?</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="notifications" value="novedades"> Novedades</label>
-                            <label><input type="checkbox" name="notifications" value="ofertas"> Ofertas
-                                Exclusivas</label>
-                            <label><input type="checkbox" name="notifications" value="eventos"> Eventos</label>
-                        </div>
-                        <div class="feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label><input type="checkbox" id="terms" name="terms" required> Acepto los términos y
-                            condiciones</label>
-                        <div class="feedback"></div>
-                    </div>
-                    <button type="submit" class="hm-btn btn-primary uppercase"
-                        id="submitNewsletter">Suscribirme</button>
-                </form>
-            </div>
-        </div>
-
     </main>
 
     <!-- =================================
@@ -648,7 +588,7 @@
                 <div class="foo-col">
                     <h2>Suscribite <br>a nuestro newsletter</h2>
                     <p>Recibí antes que nadie las mejores ofertas y novedades.</p>
-                    <button class="hm-btn btn-primary uppercase" id="openNewsletterModal">Quiero suscribirme</button>
+                    <a href="pages/newsletter.html" class="hm-btn btn-primary uppercase">Quiero suscribirme</a>
 
                 </div>
 

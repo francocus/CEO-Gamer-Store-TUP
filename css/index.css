@@ -132,7 +132,6 @@ img {
 /*=================================
     ESTILOS: Headerhm
 ==================================*/
-
 .header-menu-movil {
     display: none;
 }
@@ -724,48 +723,88 @@ footer .foo-col .foo-social ul li a:hover {
         margin-bottom: 10px;
     }
 
-    /* menu */
+    /* menu movil mejorado */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
     .header-menu-movil {
         background: #fff;
         position: fixed;
-        display: block;
-        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
         top: 0;
         right: 0;
         width: 100%;
+        max-width: 320px;
         height: 100vh;
         z-index: 1000;
-        transition: all .3s ease;
-        transform: translate(-100%);
+        transition: transform .3s ease-in-out;
+        transform: translateX(100%);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
 
     .header-menu-movil.active {
-        transform: translate(0%);
+        transform: translateX(0%);
     }
 
     .header-menu-movil .cerrar-menu {
         position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 45px;
-        height: 45px;
-        line-height: 45px;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
         border-radius: 50%;
         border: none;
-        background: #fff;
-        font-size: 18px;
+        background: #f1f1f1;
+        font-size: 20px;
         color: var(--color-negro);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .header-menu-movil .cerrar-menu:hover {
+        background: var(--color-principal);
+        color: #fff;
+        transform: rotate(90deg);
     }
 
     .header-menu-movil ul li {
         position: relative;
-        margin: 10px 0px;
+        margin: 0;
     }
 
     .header-menu-movil ul li a {
-        display: inline-block;
-        color: #151515;
+        display: block;
+        color: #333;
+        padding: 15px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 1px solid #f0f0f0;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
 
+     .header-menu-movil ul li a:hover {
+        background-color: var(--color-principal);
+        color: #fff;
+        text-decoration: none;
     }
 }
 
@@ -967,10 +1006,30 @@ body.page-fade-out {
     color: #f1f1f1 !important;
 }
 
-.dark-mode .header-menu-movil ul li a:hover {
-    background: var(--color-principal) !important;
+body.dark-mode .header-menu-movil {
+    background: #1c1c1c !important;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .header-menu-movil .cerrar-menu {
+    background: #333 !important;
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .header-menu-movil ul li a {
+    color: #f1f1f1 !important;
+    border-bottom-color: #333 !important;
+    background: transparent !important;
+}
+
+body.dark-mode .header-menu-movil ul li a:hover {
+    background-color: var(--color-principal) !important;
     color: #fff !important;
 }
+
+.dark-mode .header-menu-movil .cerrar-menu:hover {
+        background: var(--color-principal) !important;
+    }
 
 .dark-mode ::placeholder {
     color: #bbb !important;
@@ -1039,7 +1098,6 @@ body.dark-mode .foo-col .foo-social ul li a {
 body.dark-mode .foo-col .foo-social ul li a:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-    border-color: #777 !important;
     text-decoration: none;
 }
 /*=================================

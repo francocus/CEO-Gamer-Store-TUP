@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carrito - CEO Gamer Store</title>
+    <title>Newsletter - CEO Gamer Store</title>
     <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/newsletter.css">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 
         </div>
 
-        <!-- =================================
+       <!-- =================================
            HEADER MENU Movil
         ================================== -->
         <div class="header-menu-movil">
@@ -100,42 +100,66 @@
           MAIN
         ================================== -->
     <main>
-
-        <div class="hm-page-block bg-fondo carrito">
-            <div class="container">
+        <div class="hm-page-block bg-fondo newsletter-page">
+            <div class="container formulario">
                 <div class="header-title titulo">
-                    <h1>Carrito</h1>
+                    <h1>Suscribite a nuestro Newsletter</h1>
+                    <p>Recibí ofertas exclusivas, noticias y tendencias en tu correo.</p>
                 </div>
 
-                <div class="carrito-contenido">
-                    <div class="carrito-productos">
-                        <div id="productos-carrito">
-                            <p class="carrito-vacio-mensaje">Tu carrito está vacío.</p>
-                        </div>
-                    </div>
-
-                    <div class="carrito-resumen">
-                        <h2>Resumen del Pedido</h2>
-                        <div class="resumen-item">
-                            <span>Subtotal:</span>
-                            <span id="subtotal-carrito">$0.00</span>
-                        </div>
-                        <div class="resumen-item">
-                            <span>Envío:</span>
-                            <span>Gratis</span>
-                        </div>
-                        <div class="resumen-total">
-                            <span>Total:</span>
-                            <span id="total-carrito">$0.00</span>
-                        </div>
-                        <button class="hm-btn btn-primary uppercase btn-finalizar-compra">Finalizar Compra</button>
-                        <button class="hm-btn btn-secondary uppercase btn-vaciar-carrito" id="vaciar-carrito">Vaciar
-                            Carrito</button>
+                <div class="newsletter-contenido">
+                    <div class="newsletter-form">
+                        <form id="newsletterPageForm" novalidate>
+                            <div class="form-group">
+                                <label for="pageName">Nombre Completo</label>
+                                <input type="text" id="pageName" name="name" placeholder="Ej: Juan Pérez" required>
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pageEmail">Correo Electrónico</label>
+                                <input type="email" id="pageEmail" name="email" placeholder="tu@correo.com" required>
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pagePhone">Teléfono (Opcional)</label>
+                                <input type="tel" id="pagePhone" name="phone" placeholder="Ej: 1123456789">
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pageBirthdate">Fecha de Nacimiento</label>
+                                <input type="date" id="pageBirthdate" name="birthdate" required>
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pageInterest">Principal Interés</label>
+                                <select id="pageInterest" name="interest" required>
+                                    <option value="">Selecciona una categoría...</option>
+                                    <option value="calzado">Calzado</option>
+                                    <option value="moda">Moda</option>
+                                    <option value="tecnologia">Tecnología</option>
+                                    <option value="accesorios">Accesorios</option>
+                                </select>
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>¿Qué notificaciones querés recibir?</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="notifications" value="novedades"> Novedades</label>
+                                    <label><input type="checkbox" name="notifications" value="ofertas"> Ofertas Exclusivas</label>
+                                    <label><input type="checkbox" name="notifications" value="eventos"> Eventos</label>
+                                </div>
+                                <div class="feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="pageTerms" name="terms" required> Acepto los términos y condiciones</label>
+                                <div class="feedback"></div>
+                            </div>
+                            <button type="submit" class="hm-btn btn-primary uppercase" id="submitNewsletter">Suscribirme</button>
+                        </form>
                     </div>
                 </div>
-
             </div>
-
+        </div>
     </main>
 
     <!-- =================================
@@ -147,10 +171,9 @@
 
             <div class="foo-row">
                 <div class="foo-col">
-                    <h2>Suscribite <br>a nuestro newsletter</h2>
-                    <p>Recibí antes que nadie las mejores ofertas y novedades.</p>
-                    <a href="newsletter.html" class="hm-btn btn-primary uppercase">Quiero suscribirme</a>
-
+                    <a href="../index.html" class="foo-logo">
+                        <img src="../assets/icons/logo.svg" alt="Logo CEO Gamer Store">
+                    </a>
                 </div>
 
                 <div class="foo-col">
