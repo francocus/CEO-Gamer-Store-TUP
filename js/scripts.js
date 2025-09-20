@@ -254,15 +254,22 @@ if (formLogin) {
             return;
         }
 
-        // Simulación de validación de login
-        if (username === 'admin' && password === '1234') {
-            mostrarAlerta('Inicio de sesión exitoso. Redirigiendo...', 'exito', this);
-            setTimeout(() => {
-                window.location.href = '../index.html'; // Redirige a la página de inicio
-            }, 1500);
-        } else {
-            mostrarAlerta('Usuario o contraseña incorrectos', 'error', this);
-        }
+        fetch(`http://localhost:3000/users?username=${username}&password=${password}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    mostrarAlerta('Inicio de sesión exitoso. Redirigiendo...', 'exito', this);
+                    setTimeout(() => {
+                        window.location.href = '../index.html';
+                    }, 1500);
+                } else {
+                    mostrarAlerta('Usuario o contraseña incorrectos', 'error', this);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                mostrarAlerta('No se pudo conectar con el servidor. Asegúrate de que JSON Server esté corriendo.', 'error', this);
+            });
     });
 }
 
@@ -287,7 +294,6 @@ if (formNewsletter) {
             return;
         }
 
-        // Aquí iría la lógica para suscribir el email
         mostrarAlerta('¡Gracias por suscribirte!', 'exito', this);
         formNewsletter.reset();
     });
@@ -302,7 +308,6 @@ function validarEmail(email) {
 }
 
 function mostrarAlerta(mensaje, tipo, formulario) {
-    // Evita que se acumulen alertas
     const alertaExistente = formulario.parentElement.querySelector('.alerta');
     if (alertaExistente) {
         alertaExistente.remove();
@@ -312,10 +317,8 @@ function mostrarAlerta(mensaje, tipo, formulario) {
     alerta.textContent = mensaje;
     alerta.classList.add('alerta', `alerta-${tipo}`);
 
-    // Inserta la alerta dentro del contenedor del formulario, antes del formulario.
     formulario.parentElement.insertBefore(alerta, formulario);
 
-    // Desaparece después de 3 segundos
     setTimeout(() => {
         alerta.remove();
     }, 3000);
