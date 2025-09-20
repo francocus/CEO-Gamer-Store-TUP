@@ -25,6 +25,7 @@ header {
 header,
 body {
     min-height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -40,6 +41,7 @@ header {
 header,
 body {
     min-height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -108,6 +110,29 @@ img {
     background: var(--color-primary-hover);
 }
 
+
+/*=================================
+    ESTILOS: Alertas
+==================================*/
+.alerta {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.alerta-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alerta-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
 
 
 /*=================================
@@ -697,7 +722,6 @@ footer .foo-row .foo-col ul li a:hover {
 .dark-mode .header-title h1,
 .dark-mode .hm-grid-category,
 .dark-mode .hm-grid-category .grid-item,
-.dark-mode .hm-grid-category .grid-item .c-info,
 .dark-mode .grid-product .product-item,
 .dark-mode .grid-product .product-item .p-info,
 .dark-mode .tabs-content,
@@ -726,7 +750,7 @@ footer .foo-row .foo-col ul li a:hover {
 .dark-mode select {
     background: #181818 !important;
     color: #f1f1f1 !important;
-    border-color: #181818;
+    border-color: #181818 !important;
 }
 
 
@@ -846,7 +870,10 @@ footer .foo-row .foo-col ul li a:hover {
     color: #bbb !important;
 }
 
-.dark-mode .productos, .dark-mode .titulos h1, .dark-mode .tabs, .dark-mode .contenidos {
+.dark-mode .productos,
+.dark-mode .titulos h1,
+.dark-mode .tabs,
+.dark-mode .contenidos {
     background: #161616 !important;
     color: #bbb !important;
 }

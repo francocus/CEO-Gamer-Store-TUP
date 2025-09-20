@@ -25,6 +25,7 @@ header {
 header,
 body {
     min-height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -40,6 +41,7 @@ header {
 header,
 body {
     min-height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -107,6 +109,138 @@ img {
 .btn-primary:hover {
     background: var(--color-primary-hover);
 }
+
+/*=================================
+    ESTILOS: Alertas
+==================================*/
+.alerta {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.alerta-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alerta-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/*=================================
+    ESTILOS: Login
+==================================*/
+.hm-page-block.login {
+    padding: 60px 0;
+}
+
+.header-title {
+    margin-bottom: 50px;
+}
+
+.header-title h1 {
+    color: var(--color-negro);
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 16px;
+}
+
+.header-title h1::after {
+    content: '';
+    width: 76px;
+    height: 5px;
+    background: var(--color-principal);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    border-radius: 3px;
+}
+
+.login-contenido {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid #EEF5F9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-negro);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dde5ed;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #f8f9fa;
+    color: var(--color-negro);
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--color-principal);
+    background-color: #fff;
+}
+
+.login-form .hm-btn.btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-form .forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-principal);
+    font-size: 14px;
+}
+
+.login-form .forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-form .register-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #EEF5F9;
+    font-size: 14px;
+    color: var(--color-negro);
+}
+
+.login-form .register-link a {
+    color: var(--color-principal);
+    font-weight: 600;
+}
+
+.login-form .register-link a:hover {
+    text-decoration: underline;
+}
+
 
 
 
@@ -455,12 +589,14 @@ footer .foo-row .foo-col ul li a:hover {
 .dark-mode .hm-banner,
 .dark-mode .hm-banner .img-banner,
 .dark-mode .hm-page-block,
-.dark-mode .header-title,
 .dark-mode .header-title h1,
 .dark-mode .hm-grid-category,
 .dark-mode .hm-grid-category .grid-item,
 .dark-mode .hm-grid-category .grid-item .c-info,
 .dark-mode .grid-product .product-item,
+.dark-mode .login-contenido,
+.dark-mode .login-form label,
+.dark-mode .login-form .register-link,
 .dark-mode .grid-product .product-item .p-info,
 .dark-mode .tabs-content,
 .dark-mode .hm-tabs,
@@ -540,7 +676,7 @@ footer .foo-row .foo-col ul li a:hover {
 .dark-mode .hm-btn,
 .dark-mode .btn-primary,
 .dark-mode .hm-btn.btn-secondary {
-    background: #232323 !important;
+    background: #181818 !important;
     color: #f1f1f1 !important;
     border-color: #333 !important;
 }
@@ -608,7 +744,46 @@ footer .foo-row .foo-col ul li a:hover {
     color: #bbb !important;
 }
 
-.dark-mode .productos, .dark-mode .titulos h1, .dark-mode .tabs, .dark-mode .contenidos {
+.dark-mode .productos,
+.dark-mode .titulos h1,
+.dark-mode .tabs,
+.dark-mode .contenidos {
     background: #161616 !important;
     color: #bbb !important;
+}
+
+/* Dark Mode specific styles for Login */
+.dark-mode .login,
+.dark-mode .header-title h1 {
+    background: #161616 !important;
+}
+
+.dark-mode .login-contenido {
+    background: #181818 !important;
+    border-color: #333 !important;
+}
+
+.dark-mode .login-form label,
+.dark-mode .login-form .register-link {
+    color: #f1f1f1 !important;
+}
+
+.dark-mode .login-form input[type="text"],
+.dark-mode .login-form input[type="password"] {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #f1f1f1 !important;
+}
+
+.dark-mode .login-form input[type="text"]:focus,
+.dark-mode .login-form input[type="password"]:focus {
+    border-color: var(--color-principal) !important;
+}
+
+.dark-mode .login-form .register-link {
+    border-top-color: #333 !important;
+}
+
+.dark-mode .header-title h1 {
+    color: #f1f1f1 !important;
 }

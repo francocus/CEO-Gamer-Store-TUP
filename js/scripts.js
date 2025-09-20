@@ -236,3 +236,87 @@ function actualizarContador() {
         contador.textContent = totalItems;
     });
 }
+
+/*=========================================
+    FORMULARIO LOGIN
+==========================================*/
+const formLogin = document.getElementById('formLogin');
+
+if (formLogin) {
+    formLogin.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username.trim() === '' || password.trim() === '') {
+            mostrarAlerta('Todos los campos son obligatorios', 'error', this);
+            return;
+        }
+
+        // Simulación de validación de login
+        if (username === 'admin' && password === '1234') {
+            mostrarAlerta('Inicio de sesión exitoso. Redirigiendo...', 'exito', this);
+            setTimeout(() => {
+                window.location.href = '../index.html'; // Redirige a la página de inicio
+            }, 1500);
+        } else {
+            mostrarAlerta('Usuario o contraseña incorrectos', 'error', this);
+        }
+    });
+}
+
+/*=========================================
+    FORMULARIO NEWSLETTER (FOOTER)
+==========================================*/
+const formNewsletter = document.getElementById('formNewsletter');
+
+if (formNewsletter) {
+    formNewsletter.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const emailNewsletter = document.getElementById('emailNewsletter').value;
+
+        if (emailNewsletter.trim() === '') {
+            mostrarAlerta('El campo de email es obligatorio', 'error', this);
+            return;
+        }
+
+        if (!validarEmail(emailNewsletter)) {
+            mostrarAlerta('El email no es válido', 'error', this);
+            return;
+        }
+
+        // Aquí iría la lógica para suscribir el email
+        mostrarAlerta('¡Gracias por suscribirte!', 'exito', this);
+        formNewsletter.reset();
+    });
+}
+
+/*=========================================
+    FUNCIONES DE UTILIDAD
+==========================================*/
+function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function mostrarAlerta(mensaje, tipo, formulario) {
+    // Evita que se acumulen alertas
+    const alertaExistente = formulario.parentElement.querySelector('.alerta');
+    if (alertaExistente) {
+        alertaExistente.remove();
+    }
+
+    const alerta = document.createElement('div');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta', `alerta-${tipo}`);
+
+    // Inserta la alerta dentro del contenedor del formulario, antes del formulario.
+    formulario.parentElement.insertBefore(alerta, formulario);
+
+    // Desaparece después de 3 segundos
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
+}

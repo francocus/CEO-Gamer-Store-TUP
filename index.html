@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CEO Gamer Store</title>
-    <link rel="icon" href="img/logo-2_1.svg">
+    <link rel="icon" href="assets/icons/icon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -32,7 +32,7 @@
 
                     <div class="hm-logo">
                         <a href="index.html">
-                            <img src="./img/logo-2_1.svg" alt="Logo">
+                            <img src="assets/icons/logo-2_1.svg" alt="Logo">
                         </a>
                     </div>
 
@@ -46,14 +46,14 @@
 
 
                         <div class="hm-icon-cart">
-                            <a href="carrito.html">
+                            <a href="pages/carrito.html">
                                 <i class="las la-shopping-cart"></i>
                                 <span>0</span>
                             </a>
                         </div>
 
                         <div class="hm-icon-cart">
-                            <a href="login.html">
+                            <a href="pages/login.html">
                                 <i class="las la-user"></i>
                             </a>
                         </div>
@@ -88,7 +88,6 @@
             </ul>
         </div>
     </header>
-
 
     <!-- =================================
           MAIN
@@ -154,7 +153,6 @@
 
             </div>
         </div>
-
 
         <!-- =================================
            HOME PRODUCTOS DESTACADOS
@@ -547,8 +545,6 @@
         </div>
     </main>
 
-
-
     <!-- =================================
            FOOTER
         ================================== -->
@@ -559,10 +555,10 @@
             <div class="foo-row">
                 <div class="foo-col">
                     <h2>Suscribite <br>a nuestro newsletter</h2>
-                    <form action="" method="GET">
+                    <form action="" method="GET" id="formNewsletter">
 
                         <div class="f-input">
-                            <input type="text" placeholder="Ingrese su correo">
+                            <input type="text" placeholder="Ingrese su correo" id="emailNewsletter">
                             <button type="submit" class="hm-btn-round btn-primary"><i
                                     class="far fa-paper-plane"></i></button>
                         </div>
@@ -594,22 +590,14 @@
         </div>
     </div>
 
-
-    </div>
-
-    <!-- Animaciones : AOS-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-    <!-- Mi Script -->
-    <script src="js/app.js"></script>
+    <script src="js/scripts.js"></script>
 
     <script>
-
         AOS.init({
             duration: 800,
         })
-
-
     </script>
 </body>
 
