@@ -5,18 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CEO Gamer Store</title>
-    <link rel="icon" href="../img/logo-2_1.svg">
+    <title>Login - CEO Gamer Store</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
+    <!-- =================================
+          PRE-LOADER
+        ================================== -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
 
     <!-- =================================
           HEADER
@@ -32,7 +37,7 @@
 
                     <div class="hm-logo">
                         <a href="../index.html">
-                            <img src="../assets/icons/logo-2_1.svg" alt="Logo">
+                            <img src="../assets/icons/logo.svg" alt="Logo">
                         </a>
                     </div>
 
@@ -117,11 +122,72 @@
                             <button type="submit" class="hm-btn btn-primary uppercase">Iniciar Sesión</button>
                             <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
                             <div class="register-link">
-                                <p>¿No tienes una cuenta? <a href="#">Regístrate aquí</a></p>
+                                <p>¿No tenés una cuenta? <a href="#">Registrate acá</a></p>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- =================================
+           MODAL NEWSLETTER
+        ================================== -->
+        <div id="newsletterModal" class="modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h2>Suscribite a nuestro newsletter</h2>
+                <p>Recibí ofertas exclusivas, noticias y tendencias en tu correo.</p>
+                <form id="modalNewsletterForm" novalidate>
+                    <div class="form-group">
+                        <label for="modalName">Nombre Completo</label>
+                        <input type="text" id="modalName" name="name" placeholder="Ej: Juan Pérez" required>
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalEmail">Correo Electrónico</label>
+                        <input type="email" id="modalEmail" name="email" placeholder="tu@correo.com" required>
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalPhone">Teléfono (Opcional)</label>
+                        <input type="tel" id="modalPhone" name="phone" placeholder="Ej: 1123456789">
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalBirthdate">Fecha de Nacimiento</label>
+                        <input type="date" id="modalBirthdate" name="birthdate" required>
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalInterest">Principal Interés</label>
+                        <select id="modalInterest" name="interest" required>
+                            <option value="">Selecciona una categoría...</option>
+                            <option value="calzado">Calzado</option>
+                            <option value="moda">Moda</option>
+                            <option value="tecnologia">Tecnología</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué notificaciones querés recibir?</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="notifications" value="novedades"> Novedades</label>
+                            <label><input type="checkbox" name="notifications" value="ofertas"> Ofertas
+                                Exclusivas</label>
+                            <label><input type="checkbox" name="notifications" value="eventos"> Eventos</label>
+                        </div>
+                        <div class="feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="terms" name="terms" required> Acepto los términos y
+                            condiciones</label>
+                        <div class="feedback"></div>
+                    </div>
+                    <button type="submit" class="hm-btn btn-primary uppercase"
+                        id="submitNewsletter">Suscribirme</button>
+                </form>
             </div>
         </div>
     </main>
@@ -136,27 +202,31 @@
             <div class="foo-row">
                 <div class="foo-col">
                     <h2>Suscribite <br>a nuestro newsletter</h2>
-                    <form action="" method="GET" id="formNewsletter">
-
-                        <div class="f-input">
-                            <input type="text" placeholder="Ingrese su correo" id="emailNewsletter">
-                            <button type="submit" class="hm-btn-round btn-primary"><i
-                                    class="far fa-paper-plane"></i></button>
-                        </div>
-                    </form>
+                    <p>Recibí antes que nadie las mejores ofertas y novedades.</p>
+                    <button class="hm-btn btn-primary uppercase" id="openNewsletterModal">Quiero suscribirme</button>
 
                 </div>
 
                 <div class="foo-col">
-                    <ul>
-                        <li><a href="http://">Productos</a></li>
-                        <li><a href="http://">Campañas</a></li>
-                        <li><a href="http://">Nosotros</a></li>
-                        <li><a href="http://">Contacto</a></li>
-                        <li><a href="http://">Enlace 01</a></li>
-                        <li><a href="http://">Enlace 02</a></li>
-                        <li><a href="http://">Enlace 03</a></li>
+                    <ul class="foo-nav">
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Campañas</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
                     </ul>
+                    <div class="foo-social">
+                        <h4>Seguinos en nuestras redes</h4>
+                        <ul>
+                            <li><a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://twitter.com" target="_blank" aria-label="Twitter"><i
+                                        class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i
+                                        class="fab fa-tiktok"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
@@ -171,15 +241,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
     <script src="../js/scripts.js"></script>
-
-    <script>
-        AOS.init({
-            duration: 800,
-        })
-    </script>
 </body>
 
 </html>

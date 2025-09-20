@@ -1,5 +1,5 @@
 :root {
-    --color-principal: #2028ff;
+    --color-principal: #2432ca;
     --color-primary-hover: #201bc1;
     --color-verde: #04A75B;
     --color-negro: #151515;
@@ -66,16 +66,10 @@ img {
 }
 
 .container {
-    width: 1122px;
+    max-width: 1122px;
+    width: 100%;
     padding: 0 15px;
     margin: 0 auto;
-}
-
-@media screen and (min-width: 1px) {
-    .container {
-        width: auto;
-        max-width: 1122px !important;
-    }
 }
 
 .uppercase {
@@ -227,32 +221,95 @@ img {
 
 
 /*=================================
-    ESTILOS: banner
+    ESTILOS: CARRUSEL
 ==================================*/
 .hm-banner {
     position: relative;
     width: 100%;
-    height: 600px;
-    min-height: 600px;
+    overflow: hidden;
+}
+ 
+.carousel-container {
+    position: relative;
+    width: 100%;
     overflow: hidden;
 }
 
-.hm-banner a {
-    position: absolute;
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    position: relative;
+    flex: 0 0 100%;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 20;
 }
 
-.hm-banner .img-banner {
-    height: 100%;
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
 
+.carousel-button--left {
+    left: 20px;
+}
+
+.carousel-button--right {
+    right: 20px;
+}
+
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+}
+
+.carousel-indicator.current-slide {
+    background: #fff;
+}
 /*=================================
     ESTILOS: categorias home
 ==================================*/
@@ -306,7 +363,7 @@ img {
 
 .hm-grid-category .grid-item img,
 .grid-product .product-item .p-portada img {
-    transition: all .3s ease-in;
+    transition: transform .3s ease-in, filter 0.4s ease;
 }
 
 .hm-grid-category .grid-item img:hover,
@@ -529,14 +586,14 @@ footer form .f-input .hm-btn-round {
 }
 
 
-footer .foo-row .foo-col ul {
+footer .foo-row .foo-col ul.foo-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-footer .foo-row .foo-col ul li {
+footer .foo-row .foo-col ul.foo-nav li {
     width: 50%;
     margin-bottom: 16px;
 }
@@ -565,6 +622,50 @@ footer .foo-row .foo-col ul li a:hover {
 }
 
 /*=================================
+    ESTILOS: Footer Social
+==================================*/
+.foo-social {
+    margin-top: 20px;
+}
+
+.foo-social h4 {
+    color: var(--color-negro);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.foo-social ul {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.foo-social ul li {
+    width: auto;
+}
+
+.foo-social ul li a {
+    font-size: 20px;
+    color: var(--color-negro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+footer .foo-col .foo-social ul li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+/*=================================
     ESTILOS: RESPOIVE
 ==================================*/
 @media screen and (max-width: 1024px) {
@@ -580,11 +681,6 @@ footer .foo-row .foo-col ul li a:hover {
 }
 
 @media screen and (max-width: 800px) {
-    .hm-banner {
-        height: 400px;
-        min-height: 400px;
-    }
-
     .hm-grid-category,
     .grid-product {
         grid-template-columns: repeat(2, calc(50% - 2rem*1/2));
@@ -619,7 +715,7 @@ footer .foo-row .foo-col ul li a:hover {
         margin-right: 0px !important;
     }
 
-    footer .foo-row .foo-col ul {
+    footer .foo-row .foo-col ul.foo-nav {
         display: none;
     }
 
@@ -674,11 +770,6 @@ footer .foo-row .foo-col ul li a:hover {
 }
 
 @media screen and (max-width: 400px) {
-    .hm-banner {
-        height: 320px;
-        min-height: 320px;
-    }
-
     .hm-grid-category {
         grid-template-columns: repeat(2, calc(50% - 1rem*1/2));
         column-gap: 1rem;
@@ -699,10 +790,63 @@ footer .foo-row .foo-col ul li a:hover {
 
 }
 
+/*=================================
+    ESTILOS: PRE-LOADER & TRANSITIONS
+==================================*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--color-principal);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body {
+    animation: page-fade-in 0.5s ease-in-out;
+}
+
+body.page-fade-out {
+    animation: page-fade-out 0.5s ease-in-out forwards;
+}
+
+@keyframes page-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes page-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 /* ===========================
    MODO OSCURO GLOBAL
    =========================== */
-
 .dark-mode,
 .dark-mode body,
 .dark-mode header,
@@ -763,7 +907,6 @@ footer .foo-row .foo-col ul li a:hover {
     color: #fff !important;
 }
 
-/* Solo el texto azul en hover, sin fondo */
 .dark-mode .hm-menu ul li a:hover {
     background: none !important;
     color: var(--color-principal) !important;
@@ -789,6 +932,12 @@ footer .foo-row .foo-col ul li a:hover {
     filter: brightness(0.7) contrast(1.1);
 }
 
+.dark-mode .carousel-indicator {
+    background: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .carousel-indicator.current-slide {
+    background: #FFF;
+}
 .dark-mode .stin.stin-oferta {
     background: var(--color-principal) !important;
     color: #fff !important;
@@ -876,4 +1025,182 @@ footer .foo-row .foo-col ul li a:hover {
 .dark-mode .contenidos {
     background: #161616 !important;
     color: #bbb !important;
+}
+
+.dark-mode .foo-social h4 {
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .foo-col .foo-social ul li a {
+    color: #f1f1f1 !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .foo-col .foo-social ul li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    border-color: #777 !important;
+    text-decoration: none;
+}
+/*=================================
+    ESTILOS: MODAL NEWSLETTER
+==================================*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideIn 0.4s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--color-negro);
+}
+
+.modal-content p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+#modalNewsletterForm .form-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+#modalNewsletterForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+#modalNewsletterForm input[type="text"],
+#modalNewsletterForm input[type="email"],
+#modalNewsletterForm input[type="tel"],
+#modalNewsletterForm input[type="date"],
+#modalNewsletterForm select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+#modalNewsletterForm input:focus,
+#modalNewsletterForm select:focus {
+    outline: none;
+    border-color: var(--color-principal);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Validation Feedback */
+.feedback {
+    font-size: 12px;
+    padding-top: 4px;
+    min-height: 18px;
+}
+
+.form-group input.is-invalid,
+.form-group select.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-group .feedback.is-invalid {
+    color: #dc3545;
+}
+
+.form-group input.is-valid,
+.form-group select.is-valid {
+    border-color: #28a745;
+}
+
+.form-group .feedback.is-valid {
+    color: #28a745;
+}
+
+/* Dark Mode for Modal */
+body.dark-mode .modal-content {
+    background-color: #161616;
+    border-color: #444;
+}
+body.dark-mode .modal-content h2,
+body.dark-mode .modal-content p,
+body.dark-mode #modalNewsletterForm label {
+    color: #f1f1f1;
+}
+body.dark-mode #modalNewsletterForm input,
+body.dark-mode #modalNewsletterForm select {
+    background-color: #232323;
+    border-color: #555 !important;
+    color: #f1f1f1;
+}
+
+body.dark-mode #preloader {
+    background-color: #181818 !important;
+}
+
+body.dark-mode .spinner {
+    border-color: #333 !important;
+    border-top-color: var(--color-principal) !important;
 }
