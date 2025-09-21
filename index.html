@@ -13,7 +13,7 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -46,11 +46,10 @@
                     <nav class="hm-menu">
                         <ul>
                             <li><a href="index.html">Inicio</a></li>
-                            <li><a href="#categorias">Categorías</a></li>
-                            <li><a href="pages/novedades.html">Novedades</a></li>
-                            <li><a href="http://">Contacto</a></li>
+                            <li><a href="#marcas">Marcas</a></li>
+                            <li><a href="#productos">Productos</a></li>
+                            <li><a href="pages/newsletter.html">Contacto</a></li>
                         </ul>
-
 
                         <div class="hm-icon-cart">
                             <a href="pages/carrito.html">
@@ -74,7 +73,6 @@
                         <div class="icon-menu">
                             <button type="button"><i class="fas fa-bars"></i></button>
                         </div>
-
                     </nav>
 
                 </div>
@@ -88,10 +86,10 @@
         <div class="header-menu-movil">
             <button class="cerrar-menu"><i class="fas fa-times"></i></button>
             <ul>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Campañas</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="pages/newsletter.html">Contacto</a></li>
             </ul>
         </div>
         <div class="menu-overlay"></div>
@@ -135,50 +133,42 @@
         </div>
 
         <!-- =================================
-           HOME CATEGORIAS
+           HOME NOVEDADES
         ================================== -->
-        <div class="hm-page-block">
+        <div class="hm-page-block" id="marcas">
             <div class="container">
-                <div class="header-title" id="categorias">
-                    <h1 data-aos="fade-up" data-aos-duration="3000">Categorías</h1>
+                <div class="header-title">
+                    <h1 data-aos="fade-up" data-aos-duration="3000">Marcas</h1>
                 </div>
 
                 <div class="hm-grid-category">
 
                     <div class="grid-item" data-aos="fade-up" data-aos-duration="1000">
-                        <a href="#">
-                            <img src="img/c-1.jpg" alt="">
-                            <div class="c-info">
-                                <h3>Computadoras</h3>
-                            </div>
-                        </a>
+                        <img src="assets/images/8.webp" alt="">
+                        <div class="c-info">
+                            <h3>AMD</h3>
+                        </div>
                     </div>
 
                     <div class="grid-item" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="#">
-                            <img src="img/c-2.jpg" alt="">
-                            <div class="c-info">
-                                <h3>Notebooks</h3>
-                            </div>
-                        </a>
+                        <img src="assets/images/9.webp" alt="">
+                        <div class="c-info">
+                            <h3>INTEL</h3>
+                        </div>
                     </div>
 
                     <div class="grid-item" data-aos="fade-up" data-aos-duration="2000">
-                        <a href="#">
-                            <img src="img/c-3.jpg" alt="">
-                            <div class="c-info">
-                                <h3>Componentes</h3>
-                            </div>
-                        </a>
+                        <img src="assets/images/10.webp" alt="">
+                        <div class="c-info">
+                            <h3>ASUS</h3>
+                        </div>
                     </div>
 
                     <div class="grid-item" data-aos="fade-up" data-aos-duration="2000">
-                        <a href="#">
-                            <img src="img/c-4.jpg" alt="">
-                            <div class="c-info">
-                                <h3>Accesorios</h3>
-                            </div>
-                        </a>
+                        <img src="assets/images/11.webp" alt="">
+                        <div class="c-info">
+                            <h3>GIGABYTE</h3>
+                        </div>
                     </div>
                 </div>
 
@@ -186,56 +176,51 @@
         </div>
 
         <!-- =================================
-           HOME PRODUCTOS DESTACADOS
+           HOME PRODUCTOS
         ================================== -->
-        <div class="hm-page-block bg-fondo productos">
+        <div class="hm-page-block bg-fondo productos" id="productos">
 
             <div class="container">
 
                 <div class="header-title titulos" data-aos="fade-up">
-                    <h1>Productos populares</h1>
+                    <h1>Productos</h1>
                 </div>
 
                 <!-- TABS -->
                 <ul class="hm-tabs tabs" data-aos="fade-up">
                     <li class="hm-tab-link">
-                        Zapatillas
+                        Procesadores
                     </li>
 
                     <li class="hm-tab-link">
-                        Moda
+                        Placas de video
                     </li>
 
                     <li class="hm-tab-link">
-                        Tecnología
+                        Gabinetes
                     </li>
 
-                    <li class="hm-tab-link ative">
+                    <li class="hm-tab-link active">
                         En oferta
                     </li>
 
                 </ul>
 
                 <!-- CONTENIDO DE LOS TABS -->
-                <!-- Zapatillas -->
                 <div class="tabs-content contenidos" data-aos="fade-up">
 
                     <div class="grid-product">
 
                         <div class="product-item" data-id="1">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/1.jpg" alt="">
-                                </a>
+                                <img src="assets/images/12.webp" alt="">
                                 <span class="stin stin-new">Nuevo</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Quisque vulputate aliquam</h3>
-                                </a>
+                                <h3>Micro AMD Ryzen 5 5600GT 4.6 Ghz AM4</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$212.800,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -244,17 +229,13 @@
 
                         <div class="product-item" data-id="2">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/3.jpg" alt="">
-                                </a>
+                                <img src="assets/images/13.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Praesent nibh lorem, tempus quis est a</h3>
-                                </a>
+                                <h3>Microprocesador Intel Core I5 12400 Alderlake 4.40GHZ 12MB LGA1700</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$275.288,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -263,17 +244,13 @@
 
                         <div class="product-item" data-id="3">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/1.jpg" alt="">
-                                </a>
+                                <img src="assets/images/14.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Nunc sit amet justo nec ipsum dolor.</h3>
-                                </a>
+                                <h3>Microprocesador AMD Ryzen 7 5800XT 8/16 4.8Ghz S/G C/Cooler Zen 3</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$373.778,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -282,18 +259,14 @@
 
                         <div class="product-item" data-id="4">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/3.jpg" alt="">
-                                </a>
+                                <img src="assets/images/15.webp" alt="">
                                 <span class="stin stin-new">Nuevo</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Lorem ipsum dolor sit, amet consectetur</h3>
-                                </a>
+                                <h3>Cpu Intel Core I3 14100 RAPTORLAKE 4/8 4.70GHZ 12MB S1700</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$213.128,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -304,25 +277,20 @@
 
                 </div>
 
-                <!-- Moda -->
                 <div class="tabs-content" data-aos="fade-up">
 
                     <div class="grid-product">
 
                         <div class="product-item" data-id="5">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/2.jpg" alt="">
-                                </a>
+                                <img src="assets/images/16.webp" alt="">
                                 <span class="stin stin-new">Nuevo</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Quisque vulputate aliquam</h3>
-                                </a>
+                                <h3>Video Radeon RX 6400 4Gb Gigabyte Eagle</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$227.110,80</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -331,18 +299,14 @@
 
                         <div class="product-item" data-id="6">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/4.jpg" alt="">
-                                </a>
+                                <img src="assets/images/17.webp" alt="">
                                 <span class="stin stin-new">Nuevo</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Praesent nibh lorem, tempus quis est a</h3>
-                                </a>
+                                <h3>Placa De Video Gigabyte Nvidia Geforce RTX 3050 Windforce OC 6Gb</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$349.145,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -351,17 +315,13 @@
 
                         <div class="product-item" data-id="7">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/5.jpg" alt="">
-                                </a>
+                                <img src="assets/images/18.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Nunc sit amet justo nec ipsum dolor.</h3>
-                                </a>
+                                <h3>Placa De Video Gigabyte Radeon RX 7600 Gaming OC 8Gb</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$589.049,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -370,17 +330,13 @@
 
                         <div class="product-item" data-id="8">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/7.jpg" alt="">
-                                </a>
+                                <img src="assets/images/19.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Lorem ipsum dolor sit, amet consectetur</h3>
-                                </a>
+                                <h3>Placa De Video MSI Nvidia Geforce RTX 3050 Low Profile OC 6Gb</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$329.332</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -391,25 +347,20 @@
 
                 </div>
 
-                <!-- Tecnología -->
                 <div class="tabs-content" data-aos="fade-up">
 
                     <div class="grid-product">
 
                         <div class="product-item" data-id="9">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/1.jpg" alt="">
-                                </a>
+                                <img src="assets/images/20.webp" alt="">
                                 <span class="stin stin-new">Nuevo</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Quisque vulputate aliquam</h3>
-                                </a>
+                                <h3>Gabinete ASUS TUF GT501 Vidrio Templado White 4x120mm RGB Fans Aura Sync</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$248.700,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -418,17 +369,13 @@
 
                         <div class="product-item" data-id="10">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/2.jpg" alt="">
-                                </a>
+                                <img src="assets/images/21.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Praesent nibh lorem, tempus quis est a</h3>
-                                </a>
+                                <h3>Gabinete Deepcool MACUBE 110 WH White Vidrio Templado MATX</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$69.200,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -437,17 +384,13 @@
 
                         <div class="product-item" data-id="11">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/3.jpg" alt="">
-                                </a>
+                                <img src="assets/images/22.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Nunc sit amet justo nec ipsum dolor.</h3>
-                                </a>
+                                <h3>Gabinete Cougar MX410 Mesh-G RGB 4x120mm ARGB Fans</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$100.300,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -456,17 +399,13 @@
 
                         <div class="product-item" data-id="12">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/4.jpg" alt="">
-                                </a>
+                                <img src="assets/images/23.webp" alt="">
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Lorem ipsum dolor sit, amet consectetur</h3>
-                                </a>
+                                <h3>Gabinete ASUS TUF GT301 ARGB 4x120mm ARGB Fans Vidrio Templado</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$147.500,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -477,26 +416,21 @@
 
                 </div>
 
-                <!-- En oferta -->
                 <div class="tabs-content" data-aos="fade-up">
 
                     <div class="grid-product">
 
                         <div class="product-item" data-id="13">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/1.jpg" alt="">
-                                </a>
+                                <img src="assets/images/24.webp" alt="">
                                 <span class="stin stin-oferta">Oferta</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Quisque vulputate aliquam</h3>
-                                </a>
+                                <h3>Disco Solido SSD 500GB Kingston NV2 M.2 NVMe PCIe x4 4.0 (Similar 480GB 512GB)</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
-                                    <span class="thash">$ 00.00</span>
+                                    <span>$56.125,00</span>
+                                    <span class="thash">$70.032,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -505,19 +439,15 @@
 
                         <div class="product-item" data-id="14">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/2.jpg" alt="">
-                                </a>
+                                <img src="assets/images/25.webp" alt="">
                                 <span class="stin stin-oferta">Oferta</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Praesent nibh lorem, tempus quis est a</h3>
-                                </a>
+                                <h3>Mouse Redragon Star Pro Wireless Gris M917gb-Pro Inalambrico</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
-                                    <span class="thash">$ 00.00</span>
+                                    <span>$50.300,00</span>
+                                    <span class="thash">$61.366,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -526,20 +456,16 @@
 
                         <div class="product-item" data-id="15">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/7.jpg" alt="">
-                                </a>
+                                <img src="assets/images/26.webp" alt="">
                                 <span class="stin stin-oferta">Oferta</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Nunc sit amet justo nec ipsum dolor.</h3>
-                                </a>
+                                <h3>Auricular Asus ROG Delta S Animate</h3>
                                 <div class="precio">
-                                    <span>$ 00.00</span>
+                                    <span>$319,000,00</span>
 
-                                    <span class="thash">$ 00.00</span>
+                                    <span class="thash">$445.000,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -548,19 +474,15 @@
 
                         <div class="product-item" data-id="16">
                             <div class="p-portada">
-                                <a href="">
-                                    <img src="img/8.jpg" alt="">
-                                </a>
+                                <img src="assets/images/27.webp" alt="">
                                 <span class="stin stin-oferta">Oferta</span>
                             </div>
 
                             <div class="p-info">
-                                <a href="">
-                                    <h3>Lorem ipsum dolor sit, amet consectetur</h3>
-                                </a>
+                                <h3>Monitor Gamer 27" Samsung Odyssey G4 240Hz 1Ms LS27BG400ELCZB</h3>
                                 <div class="precio">
-                                    <span>S/ 00.00</span>
-                                    <span class="thash">S/ 00.00</span>
+                                    <span>$894.339,00</span>
+                                    <span class="thash">$513.989,00</span>
                                 </div>
                                 <a href="#" class="hm-btn btn-primary uppercase agregar-carrito">AGREGAR AL CARRITO</a>
                             </div>
@@ -595,10 +517,10 @@
                 <div class="foo-col">
                     <ul class="foo-nav">
 
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Campañas</a></li>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#marcas">Marcas</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="pages/newsletter.html">Contacto</a></li>
+                        <li><a href="pages/login.html">Login</a></li>
                     </ul>
                     <div class="foo-social">
                         <h4>Seguinos en nuestras redes</h4>

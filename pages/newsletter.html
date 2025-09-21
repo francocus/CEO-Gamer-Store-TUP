@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../css/newsletter.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -45,9 +45,9 @@
                     <nav class="hm-menu">
                         <ul>
                             <li><a href="../index.html">Inicio</a></li>
-                            <li><a href="http://">Campañas</a></li>
-                            <li><a href="../pages/novedades.html">Novedades</a></li>
-                            <li><a href="http://">Contacto</a></li>
+                            <li><a href="../index.html#marcas">Marcas</a></li>
+                            <li><a href="../index.html#productos">Productos</a></li>
+                            <li><a href="newsletter.html">Contacto</a></li>
                         </ul>
 
 
@@ -81,16 +81,16 @@
 
         </div>
 
-       <!-- =================================
+        <!-- =================================
            HEADER MENU Movil
         ================================== -->
         <div class="header-menu-movil">
             <button class="cerrar-menu"><i class="fas fa-times"></i></button>
             <ul>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Campañas</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#marcas">Marcas</a></li>
+                <li><a href="../index.html#productos">Productos</a></li>
+                <li><a href="newsletter.html">Contacto</a></li>
             </ul>
         </div>
         <div class="menu-overlay"></div>
@@ -99,7 +99,7 @@
     <!-- =================================
           MAIN
         ================================== -->
-    <main>
+    <main class="newsletter-page">
         <div class="hm-page-block bg-fondo newsletter-page">
             <div class="container formulario">
                 <div class="header-title titulo">
@@ -134,27 +134,33 @@
                                 <label for="pageInterest">Principal Interés</label>
                                 <select id="pageInterest" name="interest" required>
                                     <option value="">Selecciona una categoría...</option>
-                                    <option value="calzado">Calzado</option>
-                                    <option value="moda">Moda</option>
-                                    <option value="tecnologia">Tecnología</option>
-                                    <option value="accesorios">Accesorios</option>
+                                    <option value="marcas">Marcas</option>
+                                    <option value="procesadores">Procesadores</option>
+                                    <option value="placas de video">Placas de video</option>
+                                    <option value="gabinetes">Gabinetes</option>
                                 </select>
                                 <div class="feedback"></div>
                             </div>
                             <div class="form-group">
                                 <label>¿Qué notificaciones querés recibir?</label>
                                 <div class="checkbox-group">
-                                    <label><input type="checkbox" name="notifications" value="novedades"> Novedades</label>
-                                    <label><input type="checkbox" name="notifications" value="ofertas"> Ofertas Exclusivas</label>
+                                    <label><input type="checkbox" name="notifications" value="novedades">
+                                        Novedades</label>
+                                    <label><input type="checkbox" name="notifications" value="ofertas"> Ofertas
+                                        Exclusivas</label>
                                     <label><input type="checkbox" name="notifications" value="eventos"> Eventos</label>
                                 </div>
                                 <div class="feedback"></div>
                             </div>
                             <div class="form-group">
-                                <label><input type="checkbox" id="pageTerms" name="terms" required> Acepto los términos y condiciones</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="pageTerms" name="terms" required> Acepto los
+                                        términos y condiciones</label>
+                                </div>
                                 <div class="feedback"></div>
                             </div>
-                            <button type="submit" class="hm-btn btn-primary uppercase" id="submitNewsletter">Suscribirme</button>
+                            <button type="submit" class="hm-btn btn-primary uppercase"
+                                id="submitNewsletter">Suscribirme</button>
                         </form>
                     </div>
                 </div>
@@ -170,7 +176,7 @@
         <div class="container">
 
             <div class="foo-row">
-                <div class="foo-col">
+                <div class="foo-col logo-container">
                     <a href="../index.html" class="foo-logo">
                         <img src="../assets/icons/logo.svg" alt="Logo CEO Gamer Store">
                     </a>
@@ -178,10 +184,10 @@
 
                 <div class="foo-col">
                     <ul class="foo-nav">
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Campañas</a></li>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="../index.html#marcas">Marcas</a></li>
+                        <li><a href="../index.html#productos">Productos</a></li>
+                        <li><a href="newsletter.html">Contacto</a></li>
+                        <li><a href="login.html">Login</a></li>
                     </ul>
                     <div class="foo-social">
                         <h4>Seguinos en nuestras redes</h4>

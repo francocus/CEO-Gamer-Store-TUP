@@ -1,4 +1,3 @@
-
 /*=========================================
     PRE-LOADER
 ==========================================*/
@@ -9,17 +8,16 @@ window.addEventListener('load', () => {
     }
 });
 
+/*=========================================
+    HEADER FIXED
+==========================================*/
 const headerMenu = document.querySelector('.hm-header');
-
-console.log(headerMenu.offsetTop);
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 80) {
-        headerMenu.classList.add('header-fixed');
-    } else {
-        headerMenu.classList.remove('header-fixed');
+if (headerMenu) {
+    window.addEventListener('scroll', () => {
+        // Usamos toggle para una sintaxis más limpia
+        headerMenu.classList.toggle('header-fixed', window.pageYOffset > 80);
     }
-})
+)}
 
 /*=========================================
     TABS
@@ -56,7 +54,6 @@ if (document.querySelector('.hm-tabs')) {
 /*=========================================
     MENU
 ==========================================*/
-
 const menu = document.querySelector('.icon-menu');
 const menuClose = document.querySelector('.cerrar-menu');
 const mobileMenu = document.querySelector('.header-menu-movil');
@@ -81,9 +78,33 @@ if (menu && mobileMenu && menuClose && overlay) {
 }
 
 /*=========================================
+    SMOOTH SCROLL FOR ANCHOR LINKS
+==========================================*/
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.length > 1 && href.startsWith('#')) {
+            const targetElement = document.getElementById(href.substring(1));
+
+            if (targetElement) {
+                e.preventDefault();
+
+                // La altura del header se tiene en cuenta para que no tape el título de la sección
+                const headerHeight = 64;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+/*=========================================
     DARK MODE
 ==========================================*/
-
 const cambiarTemaBtn = document.getElementById('cambiarTema');
 const body = document.body;
 
@@ -107,13 +128,12 @@ if (cambiarTemaBtn) {
 /*=========================================
     CARRITO
 ==========================================*/
-const contenedorCarrito = document.getElementById('productos-carrito');
-const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
-const contadoresCarrito = document.querySelectorAll('.hm-icon-cart span');
 let articulosCarrito = [];
 
-cargarEventListeners();
-function cargarEventListeners() {
+function initCart() {
+    const contenedorCarrito = document.getElementById('productos-carrito');
+    const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+
     document.addEventListener('click', agregarProducto);
 
     if (contenedorCarrito) {
@@ -124,81 +144,85 @@ function cargarEventListeners() {
         vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        if (contenedorCarrito) {
-            carritoHTML();
-        }
-        actualizarContador();
+    // Cargar carrito desde localStorage al iniciar
+    articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (contenedorCarrito) {
+        carritoHTML();
+    }
+    actualizarContador();
+}
 
-        const bannerCarousel = document.querySelector('.carousel-container');
-        if (bannerCarousel) {
-            const track = bannerCarousel.querySelector('.carousel-track');
-            const slides = Array.from(track.children);
-            const nextButton = bannerCarousel.querySelector('.carousel-button--right');
-            const prevButton = bannerCarousel.querySelector('.carousel-button--left');
-            const dotsNav = bannerCarousel.querySelector('.carousel-nav');
-            let currentIndex = 0;
-            let autoPlayInterval;
+/*=========================================
+    CAROUSEL
+==========================================*/
+function initCarousel() {
+    const bannerCarousel = document.querySelector('.carousel-container');
+    if (!bannerCarousel) return;
 
-            if (slides.length > 0) {
-                slides.forEach((slide, index) => {
-                    const dot = document.createElement('button');
-                    dot.classList.add('carousel-indicator');
-                    if (index === 0) dot.classList.add('current-slide');
-                    dotsNav.appendChild(dot);
-                });
-            }
+    const track = bannerCarousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = bannerCarousel.querySelector('.carousel-button--right');
+    const prevButton = bannerCarousel.querySelector('.carousel-button--left');
+    const dotsNav = bannerCarousel.querySelector('.carousel-nav');
+    let currentIndex = 0;
+    let autoPlayInterval;
 
-            const dots = Array.from(dotsNav.children);
+    if (slides.length > 1) {
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-indicator');
+            if (index === 0) dot.classList.add('current-slide');
+            dotsNav.appendChild(dot);
+        });
 
-            const moveToSlide = (targetIndex) => {
-                track.style.transform = 'translateX(-' + (targetIndex * 100) + '%)';
-                if (dots.length > 0) {
-                    dots[currentIndex].classList.remove('current-slide');
-                    dots[targetIndex].classList.add('current-slide');
-                }
-                currentIndex = targetIndex;
-            };
+        const dots = Array.from(dotsNav.children);
 
-            const startAutoPlay = () => {
-                autoPlayInterval = setInterval(() => {
-                    const nextIndex = (currentIndex + 1) % slides.length;
-                    moveToSlide(nextIndex);
-                }, 5000);
-            };
+        const moveToSlide = (targetIndex) => {
+            track.style.transform = 'translateX(-' + (targetIndex * 100) + '%)';
+            dots[currentIndex].classList.remove('current-slide');
+            dots[targetIndex].classList.add('current-slide');
+            currentIndex = targetIndex;
+        };
 
-            const resetAutoPlay = () => {
-                clearInterval(autoPlayInterval);
-                startAutoPlay();
-            };
-
-            nextButton.addEventListener('click', () => {
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(() => {
                 const nextIndex = (currentIndex + 1) % slides.length;
                 moveToSlide(nextIndex);
-                resetAutoPlay();
-            });
+            }, 5000);
+        };
 
-            prevButton.addEventListener('click', () => {
-                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                moveToSlide(prevIndex);
-                resetAutoPlay();
-            });
+        const resetAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        };
 
-            dotsNav.addEventListener('click', e => {
-                const targetDot = e.target.closest('button');
-                if (!targetDot) return;
-                const targetIndex = dots.findIndex(dot => dot === targetDot);
-                moveToSlide(targetIndex);
-                resetAutoPlay();
-            });
+        nextButton.addEventListener('click', () => {
+            moveToSlide((currentIndex + 1) % slides.length);
+            resetAutoPlay();
+        });
 
-            if (slides.length > 1) {
-                startAutoPlay();
-            }
-        }
+        prevButton.addEventListener('click', () => {
+            moveToSlide((currentIndex - 1 + slides.length) % slides.length);
+            resetAutoPlay();
+        });
 
-        document.querySelectorAll('a').forEach(link => {
+        dotsNav.addEventListener('click', e => {
+            const targetDot = e.target.closest('button');
+            if (!targetDot) return;
+            const targetIndex = dots.findIndex(dot => dot === targetDot);
+            moveToSlide(targetIndex);
+            resetAutoPlay();
+        });
+
+        startAutoPlay();
+    }
+}
+
+/*=========================================
+    PAGE TRANSITIONS
+==========================================*/
+function initPageTransitions() {
+    document.querySelectorAll('a').forEach(link => {
             const url = new URL(link.href, window.location.origin);
             if (link.target === '_blank' ||
                 link.getAttribute('href').startsWith('#') ||
@@ -217,8 +241,19 @@ function cargarEventListeners() {
                     window.location.href = destination;
                 }, 500);
             });
-        });
     });
+}
+
+/*=========================================
+    DOM CONTENT LOADED - INITIALIZERS
+==========================================*/
+document.addEventListener('DOMContentLoaded', () => {
+    initCart();
+    initCarousel();
+    initPageTransitions();
+});
+
+function agregarProducto(e) {
 }
 
 function agregarProducto(e) {
@@ -228,6 +263,7 @@ function agregarProducto(e) {
         leerDatosProducto(productoSeleccionado);
     }
 }
+
 
 function leerDatosProducto(producto) {
     const infoProducto = {
@@ -274,6 +310,7 @@ function eliminarProducto(e) {
 }
 
 function carritoHTML() {
+    const contenedorCarrito = document.getElementById('productos-carrito');
     if (!contenedorCarrito) return;
 
     limpiarHTML();
@@ -322,6 +359,7 @@ function actualizarResumen() {
 }
 
 function vaciarCarrito(e) {
+    const contenedorCarrito = document.getElementById('productos-carrito');
     e.preventDefault();
     articulosCarrito = [];
     limpiarHTML();
@@ -335,12 +373,14 @@ function sincronizarStorage() {
 }
 
 function limpiarHTML() {
+    const contenedorCarrito = document.getElementById('productos-carrito');
     while (contenedorCarrito.children.length > 1) {
         contenedorCarrito.removeChild(contenedorCarrito.lastChild);
     }
 }
 
 function actualizarContador() {
+    const contadoresCarrito = document.querySelectorAll('.hm-icon-cart span');
     const totalItems = articulosCarrito.reduce((total, producto) => total + producto.cantidad, 0);
     contadoresCarrito.forEach(contador => {
         contador.textContent = totalItems;
@@ -403,7 +443,7 @@ if (newsletterPageForm) {
     const setFeedback = (element, message, isValid) => {
         const formGroup = element.closest('.form-group');
         const feedbackEl = formGroup.querySelector('.feedback');
-        
+
         element.classList.remove('is-valid', 'is-invalid');
         feedbackEl.classList.remove('is-valid', 'is-invalid');
         feedbackEl.textContent = '';
@@ -415,7 +455,7 @@ if (newsletterPageForm) {
             feedbackEl.textContent = message;
         }
     };
-    
+
     const clearAllFeedback = () => {
         newsletterPageForm.querySelectorAll('input, select').forEach(el => {
             el.classList.remove('is-valid', 'is-invalid');
@@ -457,8 +497,8 @@ if (newsletterPageForm) {
                 case 'pageBirthdate':
                     const birthDate = new Date(value);
                     const today = new Date();
-                    birthDate.setHours(0,0,0,0);
-                    today.setHours(0,0,0,0);
+                    birthDate.setHours(0, 0, 0, 0);
+                    today.setHours(0, 0, 0, 0);
                     if (birthDate >= today) {
                         isValid = false;
                         message = 'La fecha no puede ser hoy o en el futuro.';
@@ -466,7 +506,7 @@ if (newsletterPageForm) {
                     break;
             }
         }
-        
+
         setFeedback(field, message, isValid);
         return isValid;
     };
@@ -525,26 +565,26 @@ if (newsletterPageForm) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             })
-            .then(response => {
-                if (!response.ok) throw new Error('Error en el servidor.');
-                return response.json();
-            })
-            .then(data => {
-                console.log('Suscripción exitosa:', data);
-                mostrarAlerta('¡Gracias por suscribirte! Revisa tu correo.', 'exito', this);
-                setTimeout(() => {
-                    newsletterPageForm.reset();
-                    clearAllFeedback();
-                }, 2000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                mostrarAlerta('Hubo un problema al procesar tu suscripción. Inténtalo más tarde.', 'error', this.parentElement);
-            })
-            .finally(() => {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Suscribirme';
-            });
+                .then(response => {
+                    if (!response.ok) throw new Error('Error en el servidor.');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Suscripción exitosa:', data);
+                    mostrarAlerta('¡Gracias por suscribirte! Revisa tu correo.', 'exito', this);
+                    setTimeout(() => {
+                        newsletterPageForm.reset();
+                        clearAllFeedback();
+                    }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    mostrarAlerta('No se pudo conectar con el servidor. Asegúrate de que JSON Server esté corriendo.', 'error', this.parentElement);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Suscribirme';
+                });
         } else {
             mostrarAlerta('Por favor, corrige los errores en el formulario.', 'error', this.parentElement);
         }
