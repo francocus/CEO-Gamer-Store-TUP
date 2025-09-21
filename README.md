@@ -1,4 +1,4 @@
-# CEO Gamer Store - Proyecto Final TUP
+# CEO Gamer Store - Trabajo Práctico I - Programación II - TUP - UTN
 
 ![Captura de Pantalla de la Página de Inicio](assets/screenshots/home-light.png)
 
@@ -58,9 +58,9 @@ Además de los requisitos mínimos, el proyecto incluye la siguiente funcionalid
 
 -   **Carrito de Compras:** Implementación completa de un carrito de compras funcional que persiste los productos seleccionados por el usuario a través de las sesiones utilizando `localStorage`.
 
-## 🚀 Instrucciones para Ejecutar el Proyecto
+## Instrucciones para Ejecutar el Proyecto
 
-Para poder probar todas las funcionalidades (especialmente el login), es necesario levantar un pequeño servidor local.
+Para poder probar todas las funcionalidades (especialmente el login), es necesario levantar un servidor local.
 
 ### Prerrequisitos
 
@@ -90,16 +90,20 @@ Para poder probar todas las funcionalidades (especialmente el login), es necesar
 4.  **Abrir la Página**
     Simplemente abre el archivo `index.html` en tu navegador web. ¡Y listo! Ya podés navegar por la tienda.
 
-## 📸 Capturas de Pantalla
-
-**Nota:** Para que las imágenes se vean, crea una carpeta `screenshots` dentro de `assets` y guarda ahí tus capturas con los nombres que se usan a continuación.
+## Capturas de Pantalla
 
 ### Página de Inicio (Modo Claro y Oscuro)
-!Página de Inicio en Modo Claro
-!Página de Inicio en Modo Oscuro
+![Página de Inicio en Modo Claro](assets/screenshots/home-dark.png)
+![Página de Inicio en Modo Oscuro](assets/screenshots/home-light.png)
 
-### Carrito de Compras
-!Carrito de Compras
+### Página de Login (Modo Claro y Oscuro)
+![Página de Login en Modo Claro](assets/screenshots/login-light.png)
+![Página de Login en Modo Oscuro](assets/screenshots/login-dark.png)
 
-### Formulario de Suscripción
-!Formulario de Suscripción
+### Carrito de Compras (Modo Claro y Oscuro)
+![Carrito de Compras en Modo Claro](assets/screenshots/cart-light.png)
+![Carrito de Compras en Modo Oscuro](assets/screenshots/cart-dark.png)]
+
+### Formulario de Suscripción (Modo Claro y Oscuro)
+![Formulario de Suscripción](assets/screenshots/form-light.png)
+![Formulario de Suscripción](assets/screenshots/form-dark.png)
